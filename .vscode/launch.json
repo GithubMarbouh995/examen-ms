@@ -1,0 +1,54 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-ServiceRegistryApplication<ServiceRegistry>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.serviceregistry.ServiceRegistryApplication",
+      "projectName": "ServiceRegistry",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ConfigServerApplication<ConfigServer>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.configserver.ConfigServerApplication",
+      "projectName": "ConfigServer",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ApiGatewayApplication<ApiGateway>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.apigateway.ApiGatewayApplication",
+      "projectName": "ApiGateway",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-CourseServiceApplication<CourseService>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.courseservice.CourseServiceApplication",
+      "projectName": "CourseService",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-StudentServiceApplication<StudentService>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.studentservice.StudentServiceApplication",
+      "projectName": "StudentService",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

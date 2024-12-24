@@ -1,0 +1,30 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: API-GATEWAY
+  config:
+    import: "optional:configserver:http://localhost:9296"
+
+  cloud:
+    gateway:
+      routes:
+        - id : STUDENT-SERVICE
+          uri: lb://STUDENT-SERVICE
+          predicates:
+            - Path=/student/api/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: SERVICE-1
+                fallbackuri: forward:/studentFallBack
+
+        - id: COURSE-SERVICE
+          uri: lb://COURSE-SERVICE
+          predicates:
+            - Path=/course/api/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: SERVICE-2
+                fallbackuri: forward:/courseFallBack
