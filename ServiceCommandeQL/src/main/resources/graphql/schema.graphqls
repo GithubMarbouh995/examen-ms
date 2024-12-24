@@ -1,0 +1,49 @@
+type Commande {
+    id: ID!
+    dateCommande: String!
+    status: String!
+    total: Float!
+    items: [CommandeItem!]!
+}
+
+type CommandeItem {
+    productId: ID!
+    quantity: Int!
+    price: Float!
+}
+
+input CommandeItemInput {
+    productId: ID!
+    quantity: Int!
+    price: Float!
+}
+
+type CommandeStats {
+    totalCommandes: Int!
+    totalAmount: Float!
+    averageOrderValue: Float!
+    mostPopularProducts: [ProductStat!]!
+}
+
+type ProductStat {
+    productId: ID!
+    quantity: Int!
+}
+
+type Query {
+    getAllCommandes: [Commande]!
+    getCommandeById(id: ID!): Commande
+    getCommandesByStatus(status: String!): [Commande]!
+    getCommandeStats(startDate: String, endDate: String): CommandeStats!
+    searchCommandes(keyword: String!): [Commande!]!
+    getCommandesByDateRange(startDate: String!, endDate: String!): [Commande!]!
+}
+
+type Mutation {
+    createCommande(items: [CommandeItemInput!]!): Commande!
+    updateCommandeStatus(id: ID!, status: String!): Commande!
+    cancelCommande(id: ID!): Commande!
+    addItemToCommande(commandeId: ID!, item: CommandeItemInput!): Commande!
+    removeItemFromCommande(commandeId: ID!, productId: ID!): Commande!
+    bulkUpdateStatus(commandeIds: [ID!]!, status: String!): [Commande!]!
+}

@@ -1,7 +1,7 @@
 
 server:
   port: 8088
-  address: 192.168.0.52
+
 spring:
   datasource:
     url: jdbc:mysql://${DB_HOST:localhost}:3306/boa_db?createDatabaseIfNotExist=true
